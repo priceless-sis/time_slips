@@ -1,0 +1,152 @@
+#include <iostream>
+#include <ostream>
+#include <map>
+
+
+// function prototypes
+void pipette_data();
+void bottle_data();
+void label_data();
+
+// using this, because I basically can't write without it 
+using namespace std;
+
+
+// main function that controls pretty much everything
+int main() {
+
+	int task_type;
+
+	// intro
+	cout << "Hello, and welcome to time_slips" << endl;
+	cout << "Please select which type of task was completed" << endl;
+	cout << "Pipettes(0)   Bottles(1)   Labelling(2)" << endl;
+
+
+	cin >> task_type;
+
+	// executes the corresponding function
+	if (task_type == 0) {
+		pipette_data();
+	}
+	else if (task_type == 1) {
+		bottle_data();
+	}
+	else if (task_type == 2) {
+		label_data();
+	}
+
+
+	return 0;
+}
+
+// PIPETTES
+void pipette_data() {
+	cout << "Pipette stats:" << endl;
+	int k;
+	float array[100];
+	cout << "Enter the total number of employees:" << endl;
+	cin >> k;
+	string name;
+
+	// not sure why I chose 100 here
+	string names[100];
+
+	// loop that collects data and stores each instance into an array
+	for (int i = 0; i < k; i++) {
+		cout << "Enter name of Employee("<<i<<"): ";
+		cin >> names[i];
+		cout << endl;
+		cout << "Enter time (in hours): ";
+		cin >> array[i];
+		cout << endl;
+
+	}
+
+	// loop that actually does the comparison and determine who is the fastest
+	for (int i = 1; i < k; ++i) {
+		if (array[0] > array[i]) {
+			array[0] = array[i];
+			names[0] = names[i];
+		}
+	}
+
+	cout << "Fastest person (for pipettes):" << names[0] << endl;
+	cout << "Their speed:" << array[0] << "hours" << endl;
+
+	// save both arrays and write the data to a CSV?
+}
+
+// BOTTLES
+void bottle_data() {
+	cout << "Bottle stats:" << endl;
+	int k;
+	float array[100];
+	cout << "Enter the total number of employees:" << endl;
+	cin >> k;
+	string name;
+
+	// not sure why I chose 100 here
+	string names[100];
+
+	// loop that collects data and stores each instance into an array
+	for (int i = 0; i < k; i++) {
+		cout << "Enter name of Employee(" << i << "): ";
+		cin >> names[i];
+		cout << endl;
+		cout << "Enter time (in hours): ";
+		cin >> array[i];
+		cout << endl;
+
+	}
+
+	// loop that actually does the comparison and determine who is the fastest
+	for (int i = 1; i < k; ++i) {
+		if (array[0] > array[i]) {
+			array[0] = array[i];
+			names[0] = names[i];
+		}
+	}
+
+	cout << "Fastest person (for bottles):" << names[0] << endl;
+	cout << "Their speed:" << array[0] << "hours" << endl;
+	
+	// save both arrays and write the data to a CSV?
+}
+
+// LABELS
+void label_data() {
+	cout << "Labelling stats:" << endl;
+	int k;
+	float array[100];
+	cout << "Enter the total number of employees:" << endl;
+	cin >> k;
+	string name;
+
+	// not sure why I chose 100 here
+	string names[100];
+
+	// loop that collects data and stores each instance into an array
+	for (int i = 0; i < k; i++) {
+		cout << "Enter name of Employee(" << i << "): ";
+		cin >> names[i];
+		cout << endl;
+		cout << "Enter time (in hours): ";
+		cin >> array[i];
+		cout << endl;
+
+	}
+
+	// loop that actually does the comparison and determine who is the fastest
+	for (int i = 1; i < k; ++i) {
+		if (array[0] > array[i]) {
+			array[0] = array[i];
+			names[0] = names[i];
+		}
+	}
+
+	cout << "Fastest person (for labelling):" << names[0] << endl;
+	cout << "Their speed:" << array[0] << "hours" << endl;
+
+	// save both arrays and write the data to a CSV?
+}
