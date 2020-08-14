@@ -1,0 +1,121 @@
+#include <iostream>
+#include <ostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+// class that creates instances for each employee
+class Employee
+{
+public:
+	string name;
+	int get_id() { return employ_id; };
+	double pipette_average;
+private: 
+	int employ_id;
+};
+
+class Task
+{
+public:
+	string task_name;
+private:
+
+};
+
+vector <Employee> new_employee(vector <Employee> emp);
+vector <Task> load_projects(vector <Task> projects);
+
+int main() {
+	int choice = 0;
+	cout << "Main Function" << endl;
+	vector <Employee> emp;
+	vector <Task> projects;
+
+	// load the types of projects that can be completed
+	projects = load_projects(projects);
+
+
+	cout << "Printing all project options (DEBUGGING STATEMENT)" << endl;
+	for (int i = 0; i < projects.size(); i++) {
+		cout << projects.at(i).task_name << endl;
+	}
+
+	cout << endl;
+
+	while (choice != 4) {
+		cout << "To make a new employee profile, enter 1" << endl;
+		cout << "To exit program, enter 4" << endl;
+		cin >> choice;
+		cout << endl;
+
+		if (choice == 1) {
+			emp = new_employee(emp);
+			int N;
+			N = emp.size();
+			cout << "The new employee is named " << emp.at(N - 1).name << endl;
+			cout << endl;
+
+
+			// this statement is mainly for demonstrative/debugging purposes
+			cout << "List of current employees: " << endl;
+			for (int i = 0; i < emp.size(); i++) {
+				cout << emp.at(i).name << endl;
+			}
+			cout << endl;
+		}
+
+	}
+
+	cout << "Goodbye" << endl;
+
+	return 0;
+}
+
+vector <Employee> new_employee(vector <Employee> emp) {
+	string new_name;
+
+	// creates a new object of Employee for the new person
+	Employee new_employee;
+	cout << "Enter the name of the new employee" << endl;
+	cin >> new_name;
+
+	// assigns the name to the new employee object
+	new_employee.name = new_name;
+	
+
+	//new_employee.get_id() = emp.size() + 1;
+
+	emp.push_back(new_employee);
+
+	return emp;
+}
+
+
+// i don't know how to make this more efficient yet
+vector <Task> load_projects(vector <Task> projects) {
+	Task pipettes;
+	pipettes.task_name = "Pipettes";
+	projects.push_back(pipettes);
+	Task bottles;
+	bottles.task_name = "Bottles";
+	projects.push_back(bottles);
+	Task labeling;
+	labeling.task_name = "Labeling";
+	projects.push_back(labeling);
+
+	return projects;
+}
+
+void collect_data(vector <Employee> emp, vector <Task> projects) {
+	int _id;
+	cout << "Enter the ID of an employee" << endl;
+	cin >> _id;
+	cout << "The employee selected is " << emp.at(_id).name << endl;
+	int _task;
+	cout << "Enter the task that the employee completed" << endl;
+	cin >> _task;
+
+
+
+}
